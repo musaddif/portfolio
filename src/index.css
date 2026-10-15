@@ -665,6 +665,12 @@ h1, h2, h3, h4 {
 }
 
 /* ---------- EXPERIENCE SECTION ---------- */
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
 .experience-card {
   background: var(--surface-card);
   border: 1px solid var(--border);
@@ -1059,13 +1065,14 @@ h1, h2, h3, h4 {
 .video-modal {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.92);
   display: grid;
   place-items: center;
   padding: 20px;
   z-index: 200;
   backdrop-filter: blur(8px);
   animation: fadeIn 0.2s ease;
+  touch-action: none;
 }
 
 .video-modal-content {
@@ -1076,12 +1083,88 @@ h1, h2, h3, h4 {
   overflow: hidden;
   box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6), var(--shadow-glow-cyan);
   border: 1px solid rgba(6, 182, 212, 0.2);
+  touch-action: pan-y pinch-zoom;
 }
 
 .video-modal-content video {
   width: 100%;
   display: block;
   max-height: 80vh;
+}
+
+.gallery-content {
+  width: min(1200px, 100%);
+  background: rgba(5, 6, 10, 0.98);
+  max-height: 95vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: pan-x pan-y pinch-zoom;
+}
+
+.gallery-image {
+  width: 100%;
+  height: auto;
+  max-height: 90vh;
+  object-fit: contain;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.gallery-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+  z-index: 2;
+  backdrop-filter: blur(4px);
+  touch-action: manipulation;
+}
+
+.gallery-nav:hover {
+  background: rgba(6, 182, 212, 0.4);
+  border-color: rgba(6, 182, 212, 0.5);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.gallery-nav-prev {
+  left: 12px;
+}
+
+.gallery-nav-next {
+  right: 12px;
+}
+
+.gallery-close {
+  z-index: 3;
+}
+
+.gallery-counter {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(5, 6, 10, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  z-index: 2;
+  backdrop-filter: blur(4px);
 }
 
 .video-close {

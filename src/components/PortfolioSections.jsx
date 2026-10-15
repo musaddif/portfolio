@@ -194,9 +194,10 @@ export function About() {
           {/* Text */}
           <div className="about-text reveal reveal-delay-1">
             <p>
-              I'm a Software Developer based in Kohat, Khyber Pakhtunkhwa, Pakistan, currently
-              working at <strong style={{ color: 'var(--accent-light)' }}>Live Talk</strong> where I
-              build and maintain production web and mobile applications used by real users.
+              I'm a Software Developer based in Islamabad, Pakistan, currently working at{' '}
+              <strong style={{ color: 'var(--accent-light)' }}>Prisma Tech</strong> as a Web
+              Developer, where I build and maintain production web and mobile applications used by
+              real users.
             </p>
             <p>
               My primary focus is on <strong>React Native</strong> mobile development for both
@@ -209,11 +210,12 @@ export function About() {
               I care deeply about code quality, clean architecture, and building software that
               genuinely solves problems. I work in Agile/Scrum environments, collaborate with
               teams via Git/GitHub/GitLab, and continuously learn to stay sharp as the ecosystem
-              evolves.
+              evolves. I also integrate AI capabilities into applications — building LLM-powered,
+              AI-driven, and agentic features through API integration and prompt engineering.
             </p>
 
             <div className="about-focus" aria-label="Core technologies">
-              {['React Native', 'React.js', 'Node.js', 'MongoDB', 'Redux Toolkit', 'REST APIs'].map((tag) => (
+              {['React Native', 'React.js', 'Node.js', 'MongoDB', 'Redux Toolkit', 'REST APIs', 'AI Integration'].map((tag) => (
                 <span key={tag} className="focus-tag">{tag}</span>
               ))}
             </div>
@@ -260,25 +262,55 @@ export function About() {
    EXPERIENCE
    ===================================================== */
 export function ExperienceSection() {
-  const responsibilities = [
-    'React Native mobile application development',
-    'React.js frontend development',
-    'Node.js & Express.js backend APIs',
-    'MongoDB database design & queries',
-    'Redux Toolkit state management',
-    'JWT authentication & authorization',
-    'REST API design & integration (Axios)',
-    'Android & iOS app development',
-    'Google Play Store deployment',
-    'Apple App Store deployment',
-    'Feature development & bug fixing',
-    'Agile / Scrum development workflow',
-  ]
-
-  const techStack = [
-    'React Native', 'React.js', 'Node.js', 'Express.js',
-    'MongoDB', 'Redux Toolkit', 'JWT', 'Axios',
-    'Git', 'GitHub', 'GitLab', 'REST APIs',
+  const experiences = [
+    {
+      role: 'Web Developer',
+      company: 'Prisma Tech',
+      date: 'September 2026 – Present',
+      location: 'Islamabad, Pakistan',
+      responsibilities: [
+        'Web application development with React.js',
+        'Node.js & Express.js backend APIs',
+        'MongoDB database design & queries',
+        'REST API design & integration',
+        'LLM & AI API integration into web applications',
+        'Prompt engineering for AI-powered features',
+        'AI agent & agentic workflow development',
+        'Feature development & bug fixing',
+        'Git/GitHub version control & collaboration',
+        'Agile / Scrum development workflow',
+      ],
+      techStack: [
+        'React.js', 'Node.js', 'Express.js', 'MongoDB',
+        'REST APIs', 'LLM Integration', 'AI API Integration',
+        'Prompt Engineering', 'Git', 'GitHub',
+      ],
+    },
+    {
+      role: 'Software Developer / Full-Stack Developer',
+      company: 'Live Talk',
+      date: 'June 2020 – August 2026',
+      location: 'Islamabad, Pakistan',
+      responsibilities: [
+        'React Native mobile application development',
+        'React.js frontend development',
+        'Node.js & Express.js backend APIs',
+        'MongoDB database design & queries',
+        'Redux Toolkit state management',
+        'JWT authentication & authorization',
+        'REST API design & integration (Axios)',
+        'Android & iOS app development',
+        'Google Play Store deployment',
+        'Apple App Store deployment',
+        'Feature development & bug fixing',
+        'Agile / Scrum development workflow',
+      ],
+      techStack: [
+        'React Native', 'React.js', 'Node.js', 'Express.js',
+        'MongoDB', 'Redux Toolkit', 'JWT', 'Axios',
+        'Git', 'GitHub', 'GitLab', 'REST APIs',
+      ],
+    },
   ]
 
   return (
@@ -294,48 +326,55 @@ export function ExperienceSection() {
           </p>
         </div>
 
-        <div className="experience-card reveal reveal-delay-1">
-          <div className="exp-header">
-            <div className="exp-title-block">
-              <h3>Software Developer / Full-Stack Developer</h3>
-              <span className="exp-company">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                  <rect x="2" y="7" width="20" height="14" rx="2" />
-                  <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" />
-                </svg>
-                Live Talk
-              </span>
-            </div>
-            <div className="exp-meta">
-              <span className="exp-date">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                  <rect x="3" y="4" width="18" height="18" rx="2" />
-                  <line x1="16" y1="2" x2="16" y2="6" />
-                  <line x1="8" y1="2" x2="8" y2="6" />
-                  <line x1="3" y1="10" x2="21" y2="10" />
-                </svg>
-                2024 – Present
-              </span>
-              <span className="exp-location">📍 Kohat, Khyber Pakhtunkhwa, Pakistan</span>
-            </div>
-          </div>
+        <div className="experience-list">
+          {experiences.map((exp, idx) => (
+            <div
+              key={`${exp.company}-${exp.role}`}
+              className={`experience-card reveal reveal-delay-${Math.min(idx + 1, 2)}`}
+            >
+              <div className="exp-header">
+                <div className="exp-title-block">
+                  <h3>{exp.role}</h3>
+                  <span className="exp-company">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                      <rect x="2" y="7" width="20" height="14" rx="2" />
+                      <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" />
+                    </svg>
+                    {exp.company}
+                  </span>
+                </div>
+                <div className="exp-meta">
+                  <span className="exp-date">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                      <rect x="3" y="4" width="18" height="18" rx="2" />
+                      <line x1="16" y1="2" x2="16" y2="6" />
+                      <line x1="8" y1="2" x2="8" y2="6" />
+                      <line x1="3" y1="10" x2="21" y2="10" />
+                    </svg>
+                    {exp.date}
+                  </span>
+                  <span className="exp-location">📍 {exp.location}</span>
+                </div>
+              </div>
 
-          <div className="exp-divider" aria-hidden="true"></div>
+              <div className="exp-divider" aria-hidden="true"></div>
 
-          <ul className="exp-responsibilities" aria-label="Responsibilities">
-            {responsibilities.map((item) => (
-              <li key={item} className="exp-responsibility">{item}</li>
-            ))}
-          </ul>
+              <ul className="exp-responsibilities" aria-label="Responsibilities">
+                {exp.responsibilities.map((item) => (
+                  <li key={item} className="exp-responsibility">{item}</li>
+                ))}
+              </ul>
 
-          <div>
-            <p className="exp-tech-label">Technology Stack</p>
-            <div className="exp-tech-pills">
-              {techStack.map((tech) => (
-                <span key={tech} className="skill-pill skill-pill-primary">{tech}</span>
-              ))}
+              <div>
+                <p className="exp-tech-label">Technology Stack</p>
+                <div className="exp-tech-pills">
+                  {exp.techStack.map((tech) => (
+                    <span key={tech} className="skill-pill skill-pill-primary">{tech}</span>
+                  ))}
+                </div>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
@@ -400,6 +439,17 @@ export function SkillsSection() {
       icon: '🔧',
       title: 'Backend',
       skills: ['Node.js', 'Express.js', 'REST APIs', 'JWT', 'Authentication', 'Axios'],
+    },
+    {
+      icon: '🧠',
+      title: 'AI Integration',
+      skills: ['LLM Integration', 'AI API Integration', 'AI Models in Web Apps', 'Prompt Engineering'],
+      highlight: true,
+    },
+    {
+      icon: '🤖',
+      title: 'AI Application Development',
+      skills: ['AI-powered Application Development', 'AI Agent Development', 'Agentic AI'],
     },
     {
       icon: '🗄️',
@@ -485,14 +535,82 @@ export function ProjectMedia({ image, title, placeholder }) {
    PROJECT CARD
    ===================================================== */
 export function ProjectCard({ project }) {
-  const [activeScreenshot, setActiveScreenshot] = useState(null)
+  const [activeIndex, setActiveIndex] = useState(null)
+  const images = project.screenshots || (project.screenshot ? [project.screenshot] : [])
+  const isOpen = activeIndex !== null
+
+  const closeGallery = useCallback(() => setActiveIndex(null), [])
+  const prevImage = useCallback(() => {
+    if (isOpen) {
+      setActiveIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1))
+    }
+  }, [isOpen, images.length])
+  const nextImage = useCallback(() => {
+    if (isOpen) {
+      setActiveIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1))
+    }
+  }, [isOpen, images.length])
+
+  useEffect(() => {
+    if (!isOpen) return
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        e.preventDefault()
+        closeGallery()
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault()
+        prevImage()
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault()
+        nextImage()
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [isOpen, closeGallery, prevImage, nextImage])
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [isOpen])
+
+  const handleTouchStart = useRef(null)
+
+  const onTouchStart = (e) => {
+    handleTouchStart.current = {
+      x: e.touches[0].clientX,
+      y: e.touches[0].clientY,
+    }
+  }
+
+  const onTouchEnd = (e) => {
+    if (!handleTouchStart.current) return
+    const diffX = e.changedTouches[0].clientX - handleTouchStart.current.x
+    const diffY = e.changedTouches[0].clientY - handleTouchStart.current.y
+    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+      if (diffX > 0) {
+        prevImage()
+      } else {
+        nextImage()
+      }
+    }
+    handleTouchStart.current = null
+  }
 
   return (
     <>
       <article className="project-card" aria-labelledby={`proj-title-${project.id}`}>
         {/* Media */}
         <ProjectMedia
-          image={project.image}
+          image={project.image || (images.length > 0 ? images[0] : null)}
           title={project.title}
           placeholder={project.placeholder}
         />
@@ -556,51 +674,77 @@ export function ProjectCard({ project }) {
                 Source Code
               </a>
             )}
-            {project.screenshot && (
+            {images.length > 0 && (
               <button
                 id={`proj-screenshot-${project.id}`}
                 className="project-link project-link-secondary"
                 type="button"
-                onClick={() => setActiveScreenshot(project.screenshot)}
-                aria-label={`View ${project.title} screenshot`}
+                onClick={() => setActiveIndex(0)}
+                aria-label={`View ${project.title} screenshots`}
               >
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                   <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
                   <circle cx="8.5" cy="8.5" r="1.5" />
                   <polyline points="21 15 16 10 5 21" />
                 </svg>
-                View Screenshot
+                {images.length === 1 ? 'View Screenshot' : 'View Screenshots'}
               </button>
             )}
           </div>
         </div>
       </article>
 
-      {/* Screenshot Modal */}
-      {activeScreenshot && (
+      {/* Screenshot Gallery Modal */}
+      {isOpen && (
         <div
-          className="video-modal"
+          className="video-modal gallery-modal"
           role="dialog"
           aria-modal="true"
-          aria-label="Screenshot preview"
-          onClick={() => setActiveScreenshot(null)}
+          aria-label="Screenshot gallery"
+          onClick={closeGallery}
         >
           <div
-            className="video-modal-content"
+            className="video-modal-content gallery-content"
             onClick={(e) => e.stopPropagation()}
+            onTouchStart={onTouchStart}
+            onTouchEnd={onTouchEnd}
           >
             <button
-              className="video-close"
+              className="video-close gallery-close"
               type="button"
-              onClick={() => setActiveScreenshot(null)}
-              aria-label="Close screenshot"
+              onClick={closeGallery}
+              aria-label="Close gallery"
             >
               ✕
             </button>
+            {images.length > 1 && (
+              <>
+                <button
+                  className="gallery-nav gallery-nav-prev"
+                  type="button"
+                  onClick={prevImage}
+                  aria-label="Previous screenshot"
+                >
+                  ←
+                </button>
+                <button
+                  className="gallery-nav gallery-nav-next"
+                  type="button"
+                  onClick={nextImage}
+                  aria-label="Next screenshot"
+                >
+                  →
+                </button>
+                <div className="gallery-counter">
+                  {activeIndex + 1} / {images.length}
+                </div>
+              </>
+            )}
             <img
-              src={activeScreenshot}
-              alt="Project Screenshot"
-              style={{ width: '100%', height: 'auto', display: 'block' }}
+              src={images[activeIndex]}
+              alt={`${project.title} screenshot ${activeIndex + 1}`}
+              className="gallery-image"
+              style={{ width: '100%', height: 'auto', display: 'block', maxHeight: '90vh', objectFit: 'contain' }}
             />
           </div>
         </div>
@@ -615,14 +759,34 @@ export function ProjectCard({ project }) {
 export function ProjectsSection() {
   const projects = [
     {
+      id: 'retailer-pro',
+      title: 'Retailer Pro',
+      stack: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'ERP'],
+      description:
+        'A live, full-stack, ERP-based application for managing multiple retail stores and their day-to-day operations. Designed to help retailers streamline inventory, sales, and store-level management with a structured, production-ready system.',
+      screenshots: ['/retialer/Screenshot 2026-10-14 095015.png', '/retialer/Screenshot 2026-10-14 095129.png', '/retialer/Screenshot 2026-10-14 095220.png', '/retialer/Screenshot 2026-10-14 095300.png', '/retialer/Screenshot 2026-10-14 095346.png', '/retialer/Screenshot 2026-10-14 095421.png', '/retialer/Screenshot 2026-10-14 095444.png', '/retialer/Screenshot 2026-10-14 095516.png'],
+      placeholder: '🏪',
+      badge: { type: 'live', label: 'ERP Production' },
+    },
+    {
+      id: 'notes-app',
+      title: 'Notes App',
+      stack: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'React Native'],
+      description:
+        'A full-stack notes application available on both web and mobile. The web version is built with React.js and the MERN stack, while the mobile version is built with React Native. It provides a seamless experience for creating, organizing, and managing notes across platforms.',
+      screenshots: ['/note/Screenshot 2026-10-14 101447.png', '/note/Screenshot 2026-10-14 101540.png', '/note/WhatsApp Image 2026-10-14 at 10.10.20 AM.jpeg', '/note/WhatsApp Image 2026-10-14 at 10.10.21 AM (1).jpeg', '/note/WhatsApp Image 2026-10-14 at 10.10.21 AM.jpeg', '/note/WhatsApp Image 2026-10-14 at 10.10.22 AM (1).jpeg', '/note/WhatsApp Image 2026-10-14 at 10.10.22 AM (2).jpeg', '/note/WhatsApp Image 2026-10-14 at 10.10.22 AM.jpeg'],
+      placeholder: '📝',
+      badge: { type: 'live', label: 'Web & Mobile' },
+    },
+    {
       id: 'salamty',
       title: 'Salamty',
       stack: ['React Native', 'Redux Toolkit', 'REST APIs'],
       description:
-        'A production mobile application I actively maintain and develop at Live Talk. Responsibilities include continuous feature development, bug fixing, API integration, state management with Redux Toolkit, and managing production deployments to the Google Play Store.',
+        'A production mobile application for community and safety features. Actively maintained with continuous feature development, bug fixes, API integration, and Redux Toolkit state management, deployed to the Google Play Store.',
       liveLink: 'https://play.google.com/store/apps/details?id=pk.salamty.user&hl=en',
       liveLinkLabel: 'Play Store',
-      screenshot: '/screenshots/salamty-screenshot.png',
+      screenshots: ['/salamty/WhatsApp Image 2026-10-14 at 10.02.58 AM.jpeg', '/salamty/WhatsApp Image 2026-10-14 at 10.02.59 AM.jpeg', '/salamty/WhatsApp Image 2026-10-14 at 10.03.00 AM (1).jpeg', '/salamty/WhatsApp Image 2026-10-14 at 10.03.00 AM.jpeg', '/salamty/WhatsApp Image 2026-10-14 at 10.04.33 AM (1).jpeg', '/salamty/WhatsApp Image 2026-10-14 at 10.04.33 AM.jpeg'],
       placeholder: '🛡️',
       badge: { type: 'live', label: 'Production App' },
     },
@@ -645,19 +809,8 @@ export function ProjectsSection() {
       description:
         'A full-stack MERN web application for managing student fee records. Features an admin dashboard built with React.js, RESTful CRUD APIs with Express/Node.js, and MongoDB for persistent data storage.',
       codeLink: 'https://github.com/musaddif/feesManagementSystem',
-      screenshot: '/screenshots/fees-screenshot.png',
+      screenshots: ['/fees/Screenshot 2026-10-14 112542.png', '/fees/Screenshot 2026-10-14 112606.png', '/fees/Screenshot 2026-10-14 112649.png', '/fees/Screenshot 2026-10-14 112715.png', '/fees/Screenshot 2026-10-14 112752.png'],
       placeholder: '💳',
-      badge: { type: 'production', label: 'Full-Stack' },
-    },
-    {
-      id: 'touristtrail',
-      title: 'TouristTrail',
-      stack: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'JWT'],
-      description:
-        'A full-stack tourism discovery platform with JWT-based authentication and a React.js frontend. The Express.js + Node.js backend exposes a REST API backed by MongoDB for managing trail and tourism data.',
-      codeLink: 'https://github.com/musaddif/tourestTrail',
-      screenshot: '/screenshots/touristtrail-screenshot.png',
-      placeholder: '🗺️',
       badge: { type: 'production', label: 'Full-Stack' },
     },
   ]
@@ -744,7 +897,7 @@ export function ContactSection() {
       id: 'contact-location',
       icon: '📍',
       label: 'Location',
-      value: 'Kohat, KPK, Pakistan',
+      value: 'Islamabad, Pakistan',
       href: null,
     },
   ]
@@ -758,8 +911,8 @@ export function ContactSection() {
             Let's <span className="gradient-text">Work Together</span>
           </h2>
           <p className="section-subtitle" style={{ marginBottom: '44px' }}>
-            I'm open to new opportunities in React Native, React.js, and full-stack development.
-            Feel free to reach out.
+            I'm open to new opportunities in React Native, React.js, full-stack development, and
+            AI integration. Feel free to reach out.
           </p>
         </div>
 
