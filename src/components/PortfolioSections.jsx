@@ -790,18 +790,7 @@ export function ProjectsSection() {
       placeholder: '🛡️',
       badge: { type: 'live', label: 'Production App' },
     },
-    {
-      id: 'moove',
-      title: 'Moove',
-      stack: ['React Native'],
-      description:
-        'A published cross-platform mobile application available on the Apple App Store. Built with React Native for a seamless iOS experience with optimized navigation and dynamic content delivery.',
-      liveLink: 'https://apps.apple.com/us/app/moove/id1180956418',
-      liveLinkLabel: 'App Store',
-      screenshot: '/screenshots/moove-screenshot.png',
-      placeholder: '🚗',
-      badge: { type: 'live', label: 'App Store' },
-    },
+
     {
       id: 'fees',
       title: 'Fees Management System',
